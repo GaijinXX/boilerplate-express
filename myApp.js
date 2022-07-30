@@ -9,7 +9,7 @@ app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/json', (req, res) => res.json({"message": ( (process.env.MESSAGE_STYLE === "uppercase") ? "HELLO JSON" : "Hello json")}));
 
-app.get('/_api/use-env-vars', (req, res) => {process.env.MESSAGE_STYLE = "lower"; res.end()});
+app.get('/_api/use-env-vars', (req, res) => {process.env.MESSAGE_STYLE = "uppercase"; res.end()});
 
 
 
