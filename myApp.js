@@ -7,13 +7,7 @@ app.get('/', (req, res) => {res.sendFile(__dirname + "/views/index.html")});
 
 app.use('/public', express.static(__dirname + '/public'));
 
-app.get('/json', (req, res) => res.json({"message": ( (process.env.MESSAGE_STYLE === "uppercase") ? "HELLO JSON" : "Hello json")}));
-
-app.get('/_api/use-env-vars', (req, res) => {process.env.MESSAGE_STYLE = "lower"; res.send({"passed":true})});
-
-
-
-
+app.get('/json', (req, res) => {res.json({"message": ( (process.env.MESSAGE_STYLE === "uppercase") ? "HELLO JSON" : "Hello json")})});
 
 
 
