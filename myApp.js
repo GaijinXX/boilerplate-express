@@ -3,7 +3,12 @@ let app = express();
 
 console.log("Hello World");
 
-app.use((req, res, next) => {console.log(`${req.method} ${req.path} - ${req.ip}`); next();});
+function mwLogger (req, res, next) {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+ }
+  
+app.use(mwLogger)
 
 app.use('/public', express.static(__dirname + '/public'));
 
