@@ -1,6 +1,7 @@
 require('dotenv').config()
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');
 
 console.log("Hello World");
 
@@ -27,8 +28,7 @@ app.route('/name').get((req, res) => {
     res.json({"name": req.query.first + ' ' + req.query.last})
 });
 
-
-
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 
